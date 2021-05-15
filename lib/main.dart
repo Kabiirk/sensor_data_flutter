@@ -29,7 +29,7 @@ class _MyAppState extends State<MyApp> {
             children: <Widget>[
               Center(
                 child: CircleAvatar(
-                  backgroundImage: AssetImage('assets/naruto.jpg'),
+                  backgroundImage: AssetImage('assets/SNESDark.png'),
                   radius: 40.0,
                 ),
               ),
