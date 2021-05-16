@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -76,8 +77,26 @@ class _HomeScreenState extends State<HomeScreen> {
                   margin: EdgeInsets.only(right: 10.0),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.0),
-                    color: Colors.red[600],
+                    color: Colors.grey[350],
                   ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Icon(
+                          Icons.android,
+                        size: 30.0,
+                      ),
+                      SizedBox(height: 10.0),
+                      Text(
+                        'Sensor',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15.0,
+                        ),
+                      ),
+                    ],
+                  )
                 );
               }),
             )
