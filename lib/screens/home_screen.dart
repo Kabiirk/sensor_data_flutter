@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
+//import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+//import 'package:fl_chart/fl_chart.dart';
+import 'package:sensordataflutter/screens/pie_chart_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -7,6 +10,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
+  int touchedIndex = -1;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -99,6 +105,18 @@ class _HomeScreenState extends State<HomeScreen> {
                   )
                 );
               }),
+            ),
+            SizedBox(
+              height: 50.0,
+            ),
+            Container(
+              height: 200.0,
+              width: 200.0,
+              child: PieChartWidget(),
+            ),
+            Container(
+              height: 200.0,
+              width: 200.0,
             )
           ],
         ),
