@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 //import 'package:fl_chart/fl_chart.dart';
 import 'package:sensordataflutter/screens/pie_chart_widget.dart';
+import 'package:sensordataflutter/screens/line_chart_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -16,10 +17,11 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[850],
       body: Container(
         margin: EdgeInsets.only(top: 8.0),
         child: ListView(
-          physics: ClampingScrollPhysics(),
+          physics: const AlwaysScrollableScrollPhysics(),
           children: <Widget>[
             // App Bar
             Container(
@@ -28,7 +30,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   GestureDetector(
-                      child: Icon(Icons.menu),
+                      child: Icon(
+                          Icons.menu,
+                        color: Colors.white,
+                      ),
                   onTap: (){
                         print('Drawer !!');
                   },),
@@ -45,7 +50,8 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
 
             SizedBox(height: 25.0,),
-            // Card Section
+
+            // Card + Title Section
             Padding(
               padding: EdgeInsets.only(left: 16.0, bottom: 16.0),
               child: Column(
@@ -53,14 +59,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: <Widget>[
                   Text('Good Morning !',
                   style: TextStyle(
-                    color: Colors.black,
+                    color: Colors.white,
                     letterSpacing: 1.0,
                     fontSize: 20.0,
                   ),
                   ),
                   Text('Kabiir !',
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.white,
                       letterSpacing: 1.0,
                       fontSize: 25.0,
                       fontWeight: FontWeight.bold,
@@ -69,7 +75,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-
             Container(
               height: 100.0,
               child: ListView.builder(
@@ -106,17 +111,23 @@ class _HomeScreenState extends State<HomeScreen> {
                 );
               }),
             ),
+
             SizedBox(
               height: 50.0,
             ),
+
+            //Pie Chart
             Container(
               height: 200.0,
               width: 200.0,
               child: PieChartWidget(),
             ),
+
+            //Line Chart
             Container(
-              height: 200.0,
+              height: 300.0,
               width: 200.0,
+              child: LineChartWidget(),
             )
           ],
         ),
