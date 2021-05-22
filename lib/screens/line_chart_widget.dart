@@ -305,7 +305,7 @@ class LineChartWidgetState extends State<LineChartWidget> {
           border: const Border(
             bottom: BorderSide(
               color: Color(0xff4e4965),
-              width: 4,
+              width: 5,
             ),
             left: BorderSide(
               color: Colors.transparent,
@@ -338,9 +338,9 @@ class LineChartWidgetState extends State<LineChartWidget> {
           FlSpot(13, 1.8),
         ],
         isCurved: true,
-        curveSmoothness: 0,
+        //curveSmoothness: 0,
         colors: const [
-          Color(0x444af699),
+          Color(0xff4af699),
         ],
         barWidth: 4,
         isStrokeCapRound: true,
@@ -362,7 +362,7 @@ class LineChartWidgetState extends State<LineChartWidget> {
         ],
         isCurved: true,
         colors: const [
-          Color(0x99aa4cfc),
+          Color(0xffaa4cfc),
         ],
         barWidth: 4,
         isStrokeCapRound: true,
@@ -382,11 +382,11 @@ class LineChartWidgetState extends State<LineChartWidget> {
           FlSpot(13, 4.5),
         ],
         isCurved: true,
-        curveSmoothness: 0,
+        //curveSmoothness: 0,
         colors: const [
           Color(0x4427b6fc),
         ],
-        barWidth: 2,
+        barWidth: 5,
         isStrokeCapRound: true,
         dotData: FlDotData(show: true),
         belowBarData: BarAreaData(

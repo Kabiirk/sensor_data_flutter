@@ -76,7 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             Container(
-              height: 100.0,
+              height: 125.0,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                   padding: EdgeInsets.only(left: 16.0, right: 6),
@@ -88,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   margin: EdgeInsets.only(right: 10.0),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.0),
-                    color: Colors.grey[350],
+                    color: Colors.grey[50],
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
