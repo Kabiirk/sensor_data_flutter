@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
-//import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-//import 'package:fl_chart/fl_chart.dart';
-import 'package:sensordataflutter/screens/pie_chart_widget.dart';
-import 'package:sensordataflutter/screens/line_chart_widget.dart';
+
+// custom widget imports
+import 'package:sensordataflutter/widgets/pie_chart_widget.dart';
+import 'package:sensordataflutter/widgets/line_chart_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
