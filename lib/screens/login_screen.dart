@@ -7,8 +7,15 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final usernameHolder = TextEditingController();
+  String data = '';
 
-  int touchedIndex = -1;
+  getUsernameData(){
+
+    setState(() {
+      data = usernameHolder.text;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,8 +53,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
                   SizedBox(height: 10,),
 
-                  // Login
+                  // Username
                   TextFormField(
+                    controller: usernameHolder,
                     style: TextStyle(color: Colors.white),
                     decoration: InputDecoration(
                       enabledBorder: UnderlineInputBorder(
@@ -85,7 +93,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   ButtonTheme(
                     minWidth: 150.0,
                     child: ElevatedButton(
-                        onPressed: () {print('LOGIN !');},
+                        onPressed: () {
+                          //getUsernameData();
+                            Navigator.of(context).pushNamed('/home');
+                          },
                         style: ElevatedButton.styleFrom(
                           primary: Colors.white,
                           onPrimary: Colors.grey[850],

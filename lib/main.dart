@@ -9,7 +9,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      //initialRoute: '/',
+      //onGenerateRoute: RoutGenerator.generateRoute,
       home: LoginScreen(),
+      routes: {
+        '/home' : (_) => HomeScreen(),
+        '/login' : (_) => LoginScreen()
+      },
     );
   }
 }

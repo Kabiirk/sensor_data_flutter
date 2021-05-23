@@ -6,18 +6,32 @@ import 'package:sensordataflutter/widgets/pie_chart_widget.dart';
 import 'package:sensordataflutter/widgets/line_chart_widget.dart';
 
 class HomeScreen extends StatefulWidget {
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
-  int touchedIndex = -1;
+  final String data = 'Kabiir';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[850],
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            DrawerHeader(
+              child: Text('Hello !', style: TextStyle(color: Colors.white),),
+              decoration: BoxDecoration(color: Colors.grey[800]),
+            ),
+            ListTile(
+              title: Text('Log Out', style: TextStyle(color: Colors.grey[850]),),
+              onTap: (){Navigator.of(context).pushNamed('/login');},
+            )
+          ],
+        )
+      ),
       body: Container(
         margin: EdgeInsets.only(top: 8.0),
         child: ListView(
@@ -64,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     fontSize: 20.0,
                   ),
                   ),
-                  Text('Kabiir !',
+                  Text('$data',
                     style: TextStyle(
                       color: Colors.white,
                       letterSpacing: 1.0,
