@@ -20,7 +20,7 @@ class LineChartWidgetState extends State<LineChartWidget> {
     return AspectRatio(
       aspectRatio: 1.23,
       child: Container(
-        decoration: const BoxDecoration(
+        //decoration: const BoxDecoration(
           //borderRadius: BorderRadius.all(Radius.circular(18)),
 //          gradient: LinearGradient(
 //            colors: [
@@ -30,7 +30,7 @@ class LineChartWidgetState extends State<LineChartWidget> {
 //            begin: Alignment.bottomCenter,
 //            end: Alignment.topCenter,
 //          ),
-        ),
+        //),
         child: Stack(
           children: <Widget>[
             Column(
@@ -47,20 +47,20 @@ class LineChartWidgetState extends State<LineChartWidget> {
                   'Monthly Usage',
                   style: TextStyle(
                       color: Colors.white,
-                      fontSize: 32,
+                      fontSize: 20,
                       fontWeight: FontWeight.bold,
                       letterSpacing: 2),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(
-                  height: 37,
+                  height: 25,
                 ),
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.only(right: 16.0, left: 6.0),
                     child: LineChart(
                       isShowingMainData ? sampleData1() : sampleData2(),
-                      swapAnimationDuration: const Duration(milliseconds: 250),
+                      swapAnimationDuration: const Duration(milliseconds: 350),
                     ),
                   ),
                 ),
@@ -101,11 +101,11 @@ class LineChartWidgetState extends State<LineChartWidget> {
       titlesData: FlTitlesData(
         bottomTitles: SideTitles(
           showTitles: true,
-          reservedSize: 22,
+          reservedSize: 25,
           getTextStyles: (value) => const TextStyle(
             color: Color(0xff72719b),
             fontWeight: FontWeight.bold,
-            fontSize: 16,
+            fontSize: 15,
           ),
           margin: 10,
           getTitles: (value) {
@@ -124,8 +124,8 @@ class LineChartWidgetState extends State<LineChartWidget> {
           showTitles: true,
           getTextStyles: (value) => const TextStyle(
             color: Color(0xff75729e),
-            fontWeight: FontWeight.bold,
-            fontSize: 14,
+            //fontWeight: FontWeight.bold,
+            fontSize: 15,
           ),
           getTitles: (value) {
             switch (value.toInt()) {
@@ -140,7 +140,7 @@ class LineChartWidgetState extends State<LineChartWidget> {
             }
             return '';
           },
-          margin: 8,
+          margin: 10,
           reservedSize: 30,
         ),
       ),
@@ -255,11 +255,11 @@ class LineChartWidgetState extends State<LineChartWidget> {
       titlesData: FlTitlesData(
         bottomTitles: SideTitles(
           showTitles: true,
-          reservedSize: 22,
+          reservedSize: 25,
           getTextStyles: (value) => const TextStyle(
             color: Color(0xff72719b),
             fontWeight: FontWeight.bold,
-            fontSize: 16,
+            fontSize: 15,
           ),
           margin: 10,
           getTitles: (value) {
@@ -278,8 +278,8 @@ class LineChartWidgetState extends State<LineChartWidget> {
           showTitles: true,
           getTextStyles: (value) => const TextStyle(
             color: Color(0xff75729e),
-            fontWeight: FontWeight.bold,
-            fontSize: 14,
+            //fontWeight: FontWeight.bold,
+            fontSize: 15,
           ),
           getTitles: (value) {
             switch (value.toInt()) {
@@ -296,7 +296,7 @@ class LineChartWidgetState extends State<LineChartWidget> {
             }
             return '';
           },
-          margin: 8,
+          margin: 10,
           reservedSize: 30,
         ),
       ),
@@ -305,7 +305,7 @@ class LineChartWidgetState extends State<LineChartWidget> {
           border: const Border(
             bottom: BorderSide(
               color: Color(0xff4e4965),
-              width: 5,
+              width: 4,
             ),
             left: BorderSide(
               color: Colors.transparent,
@@ -342,7 +342,7 @@ class LineChartWidgetState extends State<LineChartWidget> {
         colors: const [
           Color(0xff4af699),
         ],
-        barWidth: 4,
+        barWidth: 8,
         isStrokeCapRound: true,
         dotData: FlDotData(
           show: false,
@@ -364,12 +364,12 @@ class LineChartWidgetState extends State<LineChartWidget> {
         colors: const [
           Color(0xffaa4cfc),
         ],
-        barWidth: 4,
+        barWidth: 8,
         isStrokeCapRound: true,
         dotData: FlDotData(
           show: false,
         ),
-        belowBarData: BarAreaData(show: true, colors: [
+        belowBarData: BarAreaData(show: false, colors: [
           const Color(0x33aa4cfc),
         ]),
       ),
@@ -386,9 +386,9 @@ class LineChartWidgetState extends State<LineChartWidget> {
         colors: const [
           Color(0x4427b6fc),
         ],
-        barWidth: 5,
+        barWidth: 8,
         isStrokeCapRound: true,
-        dotData: FlDotData(show: true),
+        dotData: FlDotData(show: false),
         belowBarData: BarAreaData(
           show: false,
         ),
