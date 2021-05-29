@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sensordataflutter/screens/home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -7,15 +8,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final usernameHolder = TextEditingController();
-  String data = '';
-
-  getUsernameData(){
-
-    setState(() {
-      data = usernameHolder.text;
-    });
-  }
+  String value='';
 
   @override
   Widget build(BuildContext context) {
@@ -55,8 +48,10 @@ class _LoginScreenState extends State<LoginScreen> {
 
                   // Username
                   TextFormField(
-                    controller: usernameHolder,
                     style: TextStyle(color: Colors.white),
+                    onChanged: (text){
+                      value = text;
+                    },
                     decoration: InputDecoration(
                       enabledBorder: UnderlineInputBorder(
                         borderSide: BorderSide(color: Colors.white),
@@ -94,8 +89,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     minWidth: 150.0,
                     child: ElevatedButton(
                         onPressed: () {
-                          //getUsernameData();
-                            Navigator.of(context).pushNamed('/home');
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => HomeScreen(value: value,),
+                            ));
                           },
                         style: ElevatedButton.styleFrom(
                           primary: Colors.white,

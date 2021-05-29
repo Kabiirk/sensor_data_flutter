@@ -5,14 +5,20 @@ import 'package:flutter/material.dart';
 import 'package:sensordataflutter/widgets/pie_chart_widget.dart';
 import 'package:sensordataflutter/widgets/line_chart_widget.dart';
 
+
 class HomeScreen extends StatefulWidget {
 
+  final String value;
+  HomeScreen({Key? key , required this.value}) : super(key : key);
+
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _HomeScreenState createState() => _HomeScreenState(value);
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final String data = 'Kabiir';
+  String value='';
+  _HomeScreenState(this.value);
+  //final String data = 'Kabiir';
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +33,9 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             ListTile(
               title: Text('Log Out', style: TextStyle(color: Colors.grey[850]),),
-              onTap: (){Navigator.of(context).pushNamed('/login');},
+              onTap: (){
+                Navigator.of(context).pushNamed('/login');
+                },
             )
           ],
         )
@@ -78,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     fontSize: 20.0,
                   ),
                   ),
-                  Text('$data',
+                  Text(value,
                     style: TextStyle(
                       color: Colors.white,
                       letterSpacing: 1.0,

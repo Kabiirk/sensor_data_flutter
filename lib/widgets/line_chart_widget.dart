@@ -44,7 +44,7 @@ class LineChartWidgetState extends State<LineChartWidget> {
                   height: 4,
                 ),
                 const Text(
-                  'Monthly Sales',
+                  'Monthly Usage',
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 32,

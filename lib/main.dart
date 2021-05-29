@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       //onGenerateRoute: RoutGenerator.generateRoute,
       home: LoginScreen(),
       routes: {
-        '/home' : (_) => HomeScreen(),
+        //'/home' : (_) => HomeScreen(),
         '/login' : (_) => LoginScreen()
       },
     );
