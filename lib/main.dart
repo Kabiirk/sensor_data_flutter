@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sensordataflutter/screens/home_screen.dart';
+//import 'package:sensordataflutter/screens/home_screen.dart';
 import 'package:sensordataflutter/screens/login_screen.dart';
 
 void main() => runApp(MyApp());
