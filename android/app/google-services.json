@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "848787759526",
+    "project_id": "sensordataflutter",
+    "storage_bucket": "sensordataflutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:848787759526:android:433a85ecd9c465e633ef67",
+        "android_client_info": {
+          "package_name": "com.example.sensordataflutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "848787759526-7gn3c3crn6ra4sudgo377e81605tco64.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sensordataflutter",
+            "certificate_hash": "417e4a7375f0846fb273cd1510949de1d11ee3e9"
+          }
+        },
+        {
+          "client_id": "848787759526-hqso65uvn4rc2m30h3uebeurejt5a2nf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDT9vXcDfcdw0P2EMyxij52NAfItSSWfpk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "848787759526-hqso65uvn4rc2m30h3uebeurejt5a2nf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
