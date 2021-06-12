@@ -1,5 +1,7 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:provider/provider.dart';
 
 class LineChartWidget extends StatefulWidget {
   @override
@@ -17,6 +19,9 @@ class LineChartWidgetState extends State<LineChartWidget> {
 
   @override
   Widget build(BuildContext context) {
+
+    final charts = Provider.of<QuerySnapshot>(context);
+    print(charts.docs);
     return AspectRatio(
       aspectRatio: 1.23,
       child: Container(
