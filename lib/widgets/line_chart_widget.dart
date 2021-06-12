@@ -1,7 +1,7 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:provider/provider.dart';
+//import 'package:provider/provider.dart';
 
 class LineChartWidget extends StatefulWidget {
   @override
@@ -20,8 +20,10 @@ class LineChartWidgetState extends State<LineChartWidget> {
   @override
   Widget build(BuildContext context) {
 
-    final charts = Provider.of<QuerySnapshot>(context);
-    print(charts.docs);
+    //final charts = Provider.of<QuerySnapshot>(context);
+    //for(var doc in charts.docs){
+    //  print(doc.data());
+    //}
     return AspectRatio(
       aspectRatio: 1.23,
       child: Container(
@@ -63,9 +65,26 @@ class LineChartWidgetState extends State<LineChartWidget> {
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.only(right: 16.0, left: 6.0),
-                    child: LineChart(
-                      isShowingMainData ? sampleData1() : sampleData2(),
-                      swapAnimationDuration: const Duration(milliseconds: 350),
+                    child: StreamBuilder<QuerySnapshot>(
+                      stream: FirebaseFirestore.instance.collection('sensortest').snapshots(),
+                      builder: (BuildContext context,
+                          AsyncSnapshot<QuerySnapshot> snapshot){
+                        if( !snapshot.hasData ){
+                          return Text('No Data');
+                        }
+                        else{
+                          //print(snapshot.data!.docs[0].get('green'));
+
+                          return LineChart(sampleData1(snapshot.data!.docs[0].get('green'),
+                              snapshot.data!.docs[0].get('blue'),
+                              snapshot.data!.docs[0].get('purple'))
+                          );
+                        }
+                      }
+                      //child: LineChart(
+                       // isShowingMainData ? sampleData1([2.0], [1.0], [3.0]) : sampleData2(),
+                       // swapAnimationDuration: const Duration(milliseconds: 350),
+                      //),
                     ),
                   ),
                 ),
@@ -91,7 +110,7 @@ class LineChartWidgetState extends State<LineChartWidget> {
     );
   }
 
-  LineChartData sampleData1() {
+  LineChartData sampleData1(List<dynamic> green, List<dynamic> blue, List<dynamic> purple) {
     return LineChartData(
       lineTouchData: LineTouchData(
         touchTooltipData: LineTouchTooltipData(
@@ -171,20 +190,25 @@ class LineChartWidgetState extends State<LineChartWidget> {
       maxX: 14,
       maxY: 4,
       minY: 0,
-      lineBarsData: linesBarData1(),
+      lineBarsData: linesBarData1(green, blue, purple),
     );
   }
 
-  List<LineChartBarData> linesBarData1() {
+  List<LineChartBarData> linesBarData1(List<dynamic> green, List<dynamic> blue, List<dynamic> purple) {
+    //print((green[0].toDouble()).runtimeType);
+    // Explicit TypeCasting to double
+    var doublegreen = green.map((i) => i.toDouble()).toList();
+    var doubleblue = blue.map((j) => j.toDouble()).toList();
+    var doublepurple = purple.map((k) => k.toDouble()).toList();
     final lineChartBarData1 = LineChartBarData(
       spots: [
-        FlSpot(1, 1),
-        FlSpot(3, 1.5),
-        FlSpot(5, 1.4),
-        FlSpot(7, 3.4),
-        FlSpot(10, 2),
-        FlSpot(12, 2.2),
-        FlSpot(13, 1.8),
+        FlSpot(1, doublegreen[0]),
+        FlSpot(3, doublegreen[1]),
+        FlSpot(5, doublegreen[2]),
+        FlSpot(7, doublegreen[3]),
+        FlSpot(10, doublegreen[4]),
+        FlSpot(12, doublegreen[5]),
+        FlSpot(13, doublegreen[6]),
       ],
       isCurved: true,
       colors: [
@@ -201,12 +225,12 @@ class LineChartWidgetState extends State<LineChartWidget> {
     );
     final lineChartBarData2 = LineChartBarData(
       spots: [
-        FlSpot(1, 1),
-        FlSpot(3, 2.8),
-        FlSpot(7, 1.2),
-        FlSpot(10, 2.8),
-        FlSpot(12, 2.6),
-        FlSpot(13, 3.9),
+        FlSpot(1, doublepurple[0]),
+        FlSpot(3, doublepurple[1]),
+        FlSpot(7, doublepurple[2]),
+        FlSpot(10, doublepurple[3]),
+        FlSpot(12, doublepurple[4]),
+        FlSpot(13, doublepurple[5]),
       ],
       isCurved: true,
       colors: [
@@ -223,11 +247,11 @@ class LineChartWidgetState extends State<LineChartWidget> {
     );
     final lineChartBarData3 = LineChartBarData(
       spots: [
-        FlSpot(1, 2.8),
-        FlSpot(3, 1.9),
-        FlSpot(6, 3),
-        FlSpot(10, 1.3),
-        FlSpot(13, 2.5),
+        FlSpot(1, doubleblue[0]),
+        FlSpot(3, doubleblue[1]),
+        FlSpot(6, doubleblue[2]),
+        FlSpot(10, doubleblue[3]),
+        FlSpot(13, doubleblue[4]),
       ],
       isCurved: true,
       colors: const [
